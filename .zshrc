@@ -88,11 +88,17 @@ alias gitr="git remote -v"
 alias pump="cd ~/Documents/esd/Pump-Simulation/ && gits"
 alias fas="cd ~/fg/freshgrade-authentication-server/ && gits"
 alias fis="cd ~/fg/freshgrade-integration-server/ && gits"
-alias fresh="cd ~/fg/freshgrade/ && gits"
+alias fresh="cd ~/fg/freshgrade/ && nvm use 4.4.7 && gits"
 alias logtree="git log --graph --decorate --oneline $(git rev-list -g --all)"
+alias startday="cd /Users/steve/fg/autobot ; vagrant up fg-local-proxy ; vagrant up fg-local-single ; bin/ssh-config; gits"
+alias endday="vagrant halt fg-local-proxy ; vagrant halt fg-local-single"
+alias ansible2.1="source ~/fg/autobot/ansible2.1/bin/activate"
+alias ansible1.9="source ~/fg/autobot/ansible1.9/bin/activate"
 
 #Arhcey
 archey
 
 export NVM_DIR="/Users/steve/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+plugins+=(git-it-on)
+
