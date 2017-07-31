@@ -1,0 +1,8 @@
+*
+!.gitignore
+!.hammerspoon/
+!.hammerspoon/*
+!.zshrc
+!.hyper.js
+!.bash_profile
+
