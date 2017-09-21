@@ -1,12 +1,10 @@
 module.exports = {
   config: {
-    enableVibrancy: false,
-
     // default font size in pixels for all tabs
     fontSize: 12,
 
     // font family with optional fallbacks
-    fontFamily: 'Menlo, "Fire Code", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -29,8 +27,7 @@ module.exports = {
     // custom css to embed in the terminal window
     termCSS: '',
 
-    // set to `true` if you're using a Linux set up
-    // that doesn't shows native menus
+    // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
     showHamburgerMenu: '',
 
@@ -63,9 +60,16 @@ module.exports = {
       lightCyan: '#00ffff',
       lightWhite: '#ffffff'
     },
-
+    StarWarsTheme: {
+        character: 'random', // Define your favorite star wars character!
+        lightsaber: 'false', // Activate your themes lightsaber mode!
+        unibody: 'false' // Define the color of the Hyper window header!
+    },
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
+    // make sure to use a full path if the binary name doesn't work
+    // (e.g `C:\\Windows\\System32\\bash.exe` instad of just `bash.exe`)
+    // if you're using powershell, make sure to remove the `--login` below
     shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
@@ -79,41 +83,16 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false,
+    copyOnSelect: false
+
+    // if true, on right click selected text will be copied or pasted if no
+    // selection is present (true by default on Windows)
+    // quickEdit: true
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
     // for advanced config flags please refer to https://hyper.is/#cfg
-    hyperStatusLine: {
-        footerTransparent: false,
-        arrowsColor: 'ivory',
-        dirtyColor: 'salmon',
-      },
-
-    paneNavigation: {
-      debug: false,
-      hotkeys: {
-        navigation: {
-          up: 'command+option+up',
-          down: 'command+option+down',
-          left: 'command+shift+left',
-          right: 'command+shift+right'
-        },
-        jump_prefix: 'ctrl+shift', // completed with 1-9 digits
-        permutation_modifier: 'option', // Added to jump and navigation hotkeys for pane permutation
-        maximize: 'meta+enter'
-      },
-      showIndicators: false, // Show pane number
-      indicatorPrefix: '^⌥', // Will be completed with pane number
-      indicatorStyle: { // Added to indicator <div>
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        fontSize: '10px'
-      },
-      focusOnMouseHover: false
-    }
   },
 
   // a list of plugins to fetch and install from npm
@@ -122,16 +101,14 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-
-  // plugins: ['hyper-materialshell',
-	//           'hyper-one-light',
-  //           'hyper-oceans16'],
-  plugins: ['hyper-pane',
-            'hyper-statusline',
+  plugins: ['hyper-oceans16',
+	          'hyper-pane',
             'hyperborder',
-            'hyper-dibdabs',
-            'gitrocket',
-            'hyperlinks'],
+            'hypercwd',
+            'hyper-statusline',
+            'hyperterm-dibdabs',
+            'gitrocket'],
+// 'hyper-star-wars'
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
