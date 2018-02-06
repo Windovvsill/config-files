@@ -1,7 +1,5 @@
 module.exports = {
   config: {
-    enableVibrancy: false,
-
     // default font size in pixels for all tabs
     fontSize: 12,
 
@@ -29,8 +27,7 @@ module.exports = {
     // custom css to embed in the terminal window
     termCSS: '',
 
-    // set to `true` if you're using a Linux set up
-    // that doesn't shows native menus
+    // set to `true` (without backticks) if you're using a Linux setup that doesn't show native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
     showHamburgerMenu: '',
 
@@ -63,9 +60,16 @@ module.exports = {
       lightCyan: '#00ffff',
       lightWhite: '#ffffff'
     },
-
+    StarWarsTheme: {
+        character: 'random', // Define your favorite star wars character!
+        lightsaber: 'false', // Activate your themes lightsaber mode!
+        unibody: 'false' // Define the color of the Hyper window header!
+    },
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
+    // make sure to use a full path if the binary name doesn't work
+    // (e.g `C:\\Windows\\System32\\bash.exe` instad of just `bash.exe`)
+    // if you're using powershell, make sure to remove the `--login` below
     shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
@@ -79,7 +83,11 @@ module.exports = {
     bell: 'SOUND',
 
     // if true, selected text will automatically be copied to the clipboard
-    copyOnSelect: false
+    copyOnSelect: true
+
+    // if true, on right click selected text will be copied or pasted if no
+    // selection is present (true by default on Windows)
+    // quickEdit: true
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
@@ -93,9 +101,16 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-materialshell',
-	    'hyper-one-light',
-            'hyper-oceans16'],
+  plugins: [
+    'hyper-oceans16',
+    'hyper-pane',
+    'hypercwd',
+    'hyper-statusline',
+    'hyperterm-dibdabs',
+    'gitrocket',
+    "hyperlayout"
+  ],
+// 'hyper-star-wars'
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
